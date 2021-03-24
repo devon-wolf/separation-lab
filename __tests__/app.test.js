@@ -9,7 +9,7 @@ jest.mock('twilio', () => () => ({
   },
 }));
 
-describe('03_separation-of-concerns-demo routes', () => {
+describe('order routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
@@ -24,6 +24,14 @@ describe('03_separation-of-concerns-demo routes', () => {
       quantity: 10,
     });
   });
+
+  // it('sends a text message on new order', async () => {
+  //   await request(app)
+  //     .post('/api/v1/orders')
+  //     .send({ quantity: 10 });
+
+  //   expect(/* the SMS function */).toHaveBeenCalledTimes(1);
+  // });
 
   it('gets all orders from our database', async () => {
     await request(app)
@@ -68,6 +76,14 @@ describe('03_separation-of-concerns-demo routes', () => {
       });
   });
 
+  // it('sends a text message on order update', async () => {
+  //   await request(app)
+  //     .put('/api/v1/orders/1')
+  //     .send({ quantity: 5 });
+
+  //   expect(/* the SMS function */).toHaveBeenCalledTimes(1);
+  // });
+
   it('deletes an order', async () => {
     await request(app)
       .post('/api/v1/orders')
@@ -81,4 +97,11 @@ describe('03_separation-of-concerns-demo routes', () => {
       quantity: 10,
     });
   });
+
+  // it('sends a text message on order delete', async () => {
+  //   await request(app)
+  //     .delete('/api/v1/orders/1');
+
+  //   expect(/* the SMS function */).toHaveBeenCalledTimes(1);
+  // });
 });
