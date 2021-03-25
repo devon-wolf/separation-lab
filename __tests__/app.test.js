@@ -16,7 +16,7 @@ describe('order routes', () => {
       .post('/api/v1/orders')
       .send({ quantity: 10 });
 
-      twilio.sendSms.mockClear();
+    twilio.sendSms.mockClear();
   });
 
   it('creates a new order in our database', async () => {
